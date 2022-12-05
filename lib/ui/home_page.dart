@@ -100,29 +100,32 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
               ),
-              CarouselSlider(
-                options: CarouselOptions(
-                  autoPlay: true,
-                  height: MediaQuery.of(context).size.height / 7,
-                  viewportFraction: 1.0,
-                ),
-                items: bannerItems.map((item) {
-                  return Builder(builder: (BuildContext context) {
-                    return Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5.0),
-                      ),
-                      child: ClipRRect(
-                        //ClipRRect : 위젯 모서리 둥글게 하기위해 사용하는 위젯
-                        borderRadius: BorderRadius.circular(5.0),
-                        child: Image.asset(
-                          item,
-                          fit: BoxFit.fill,
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: CarouselSlider(
+                  options: CarouselOptions(
+                    autoPlay: true,
+                    height: MediaQuery.of(context).size.height / 7,
+                    viewportFraction: 1.0,
+                  ),
+                  items: bannerItems.map((item) {
+                    return Builder(builder: (BuildContext context) {
+                      return Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(5.0),
                         ),
-                      ),
-                    );
-                  });
-                }).toList(),
+                        child: ClipRRect(
+                          //ClipRRect : 위젯 모서리 둥글게 하기위해 사용하는 위젯
+                          borderRadius: BorderRadius.circular(5.0),
+                          child: Image.asset(
+                            item,
+                            fit: BoxFit.fill,
+                          ),
+                        ),
+                      );
+                    });
+                  }).toList(),
+                ),
               ),
               Padding(
                 padding: const EdgeInsets.all(16.0),
