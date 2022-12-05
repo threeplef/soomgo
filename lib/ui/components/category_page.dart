@@ -1,18 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:soomgo/ui/components/detail_page.dart';
 
 import 'item_card.dart';
 
 class CategoryPage extends StatelessWidget {
-  const CategoryPage({
-    Key? key,
-    required this.categoryTitle,
-    required this.images,
-    required this.titles,
-  }) : super(key: key);
+  const CategoryPage(
+      {Key? key,
+      required this.categoryTitle,
+      required this.images,
+      required this.titles,
+      required this.gosu,
+      required this.requestment,
+      required this.review,
+      required this.rate,
+      required this.description})
+      : super(key: key);
 
   final String categoryTitle;
   final List<String> images;
   final List<String> titles;
+  final List<String> gosu;
+  final List<String> requestment;
+  final List<String> review;
+  final List<String> rate;
+  final List<String> description;
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +65,21 @@ class CategoryPage extends StatelessWidget {
                   itemCount: images.length,
                   itemBuilder: (context, index) {
                     return GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => DetailPage(
+                                    categoryTitle: titles[index],
+                                    gosu: gosu[index],
+                                    requestment: requestment[index],
+                                    review: review[index],
+                                    rate: rate[index],
+                                    description: description[index],
+                                    backgroundImage: images[index],
+                                  )),
+                        );
+                      },
                       child: ItemCard(
                         imagePath: images[index],
                         title: titles[index],
