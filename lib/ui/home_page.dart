@@ -1,6 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:soomgo/ui/sign_up_page.dart';
+import 'package:soomgo/ui/login_page.dart';
 
 import 'category/business_page.dart';
 import 'category/design_page.dart';
@@ -57,7 +57,7 @@ class HomePage extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const SignUpPage()),
+                            builder: (context) => const LoginPage()),
                       );
                     },
                     style: ElevatedButton.styleFrom(
