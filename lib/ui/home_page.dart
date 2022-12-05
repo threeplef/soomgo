@@ -1,6 +1,15 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
+import 'category/business_page.dart';
+import 'category/design_page.dart';
+import 'category/etc_page.dart';
+import 'category/event_page.dart';
+import 'category/health_page.dart';
+import 'category/lesson_page.dart';
+import 'category/living_page.dart';
+import 'category/parttime_page.dart';
+
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -120,10 +129,58 @@ class HomePage extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    _menuButton("레슨", Icons.palette_outlined),
-                    _menuButton("홈/리빙", Icons.home_outlined),
-                    _menuButton("이벤트", Icons.mic_external_on_outlined),
-                    _menuButton("비즈니스", Icons.business_center_outlined),
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const LessonPage()),
+                        );
+                      },
+                      child: _menuButton(
+                        "레슨",
+                        Icons.palette_outlined,
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const LivingPage()),
+                        );
+                      },
+                      child: _menuButton(
+                        "홈/리빙",
+                        Icons.home_outlined,
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const EventPage()),
+                        );
+                      },
+                      child: _menuButton(
+                        "이벤트",
+                        Icons.mic_external_on_outlined,
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const BusinessPage()),
+                        );
+                      },
+                      child: _menuButton(
+                        "비즈니스",
+                        Icons.business_center_outlined,
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -132,10 +189,58 @@ class HomePage extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    _menuButton("디자인/개발", Icons.design_services_outlined),
-                    _menuButton("건강/미용", Icons.monitor_heart_outlined),
-                    _menuButton("알바", Icons.monetization_on_outlined),
-                    _menuButton("기타", Icons.tag_outlined),
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const DesignPage()),
+                        );
+                      },
+                      child: _menuButton(
+                        "디자인/개발",
+                        Icons.design_services_outlined,
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const HealthPage()),
+                        );
+                      },
+                      child: _menuButton(
+                        "건강/미용",
+                        Icons.monitor_heart_outlined,
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const ParttimePage()),
+                        );
+                      },
+                      child: _menuButton(
+                        "알바",
+                        Icons.monetization_on_outlined,
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const EtcPage()),
+                        );
+                      },
+                      child: _menuButton(
+                        "기타",
+                        Icons.tag_outlined,
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -197,17 +302,14 @@ class HomePage extends StatelessWidget {
 }
 
 Widget _menuButton(String label, IconData icon) {
-  return InkWell(
-    onTap: () {},
-    child: SizedBox(
-      width: 80,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(icon, size: 35),
-          Text(label),
-        ],
-      ),
+  return SizedBox(
+    width: 80,
+    child: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Icon(icon, size: 35),
+        Text(label),
+      ],
     ),
   );
 }
