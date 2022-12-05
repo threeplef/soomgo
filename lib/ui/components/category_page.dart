@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:soomgo/ui/components/detail_page.dart';
 
+import 'detail_page.dart';
 import 'item_card.dart';
 
 class CategoryPage extends StatelessWidget {

@@ -1,6 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:soomgo/ui/login_page.dart';
 
 import 'category/business_page.dart';
 import 'category/design_page.dart';
@@ -10,6 +9,7 @@ import 'category/health_page.dart';
 import 'category/lesson_page.dart';
 import 'category/living_page.dart';
 import 'category/parttime_page.dart';
+import 'my_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -41,7 +41,12 @@ class HomePage extends StatelessWidget {
               ),
             ),
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const MyPage()),
+                );
+              },
               icon: const Icon(
                 Icons.perm_identity,
                 color: Colors.black,
@@ -53,13 +58,7 @@ class HomePage extends StatelessWidget {
               child: Container(
                   margin: const EdgeInsets.symmetric(vertical: 5.0),
                   child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const LoginPage()),
-                      );
-                    },
+                    onPressed: () {},
                     style: ElevatedButton.styleFrom(
                         primary: const Color(0xFF01C7AD), elevation: 0),
                     child: const Text("고수가입"),
