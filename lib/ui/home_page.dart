@@ -10,6 +10,7 @@ import 'category/lesson_page.dart';
 import 'category/living_page.dart';
 import 'category/parttime_page.dart';
 import 'my_page.dart';
+import 'sign_up_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -58,7 +59,13 @@ class HomePage extends StatelessWidget {
               child: Container(
                   margin: const EdgeInsets.symmetric(vertical: 5.0),
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const SignUpPage()),
+                      );
+                    },
                     style: ElevatedButton.styleFrom(
                         primary: const Color(0xFF01C7AD), elevation: 0),
                     child: const Text("고수가입"),
