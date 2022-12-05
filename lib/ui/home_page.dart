@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:soomgo/ui/sign_up_page.dart';
 
 import 'category/business_page.dart';
 import 'category/design_page.dart';
@@ -52,7 +53,13 @@ class HomePage extends StatelessWidget {
               child: Container(
                   margin: const EdgeInsets.symmetric(vertical: 5.0),
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const SignUpPage()),
+                      );
+                    },
                     style: ElevatedButton.styleFrom(
                         primary: const Color(0xFF01C7AD), elevation: 0),
                     child: const Text("고수가입"),
@@ -115,7 +122,6 @@ class HomePage extends StatelessWidget {
                           borderRadius: BorderRadius.circular(5.0),
                         ),
                         child: ClipRRect(
-                          //ClipRRect : 위젯 모서리 둥글게 하기위해 사용하는 위젯
                           borderRadius: BorderRadius.circular(5.0),
                           child: Image.asset(
                             item,
