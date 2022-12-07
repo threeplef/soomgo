@@ -19,7 +19,9 @@ class MyPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset("assets/images/avatar.png", width: 80),
+            ClipRRect(
+                borderRadius: BorderRadius.circular(30),
+                child: Image.asset("assets/images/avatar.png", width: 80)),
             const SizedBox(height: 12),
             const Text("로그인 후 이용해주세요",
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),

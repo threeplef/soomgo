@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
 
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -75,18 +80,23 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 24),
-                Container(
-                  width: double.infinity,
-                  height: 50,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(5),
-                    color: const Color(0xFF01C7AD),
+                GestureDetector(
+                  onTap: () async {
+                    setState(() {});
+                  },
+                  child: Container(
+                    width: double.infinity,
+                    height: 50,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      color: const Color(0xFF01C7AD),
+                    ),
+                    child: const Center(
+                        child: Text("이메일 로그인",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold))),
                   ),
-                  child: const Center(
-                      child: Text("이메일 로그인",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold))),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,

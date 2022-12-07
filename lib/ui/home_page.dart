@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:soomgo/ui/components/bottom_navigator.dart';
 
 import 'category/business_page.dart';
 import 'category/design_page.dart';
@@ -73,243 +74,271 @@ class HomePage extends StatelessWidget {
             )
           ],
         ),
-        body: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(
-                    vertical: 10.0, horizontal: 10.0),
-                child: SizedBox(
-                  width: 200,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      TextButton(
-                        onPressed: () {},
-                        child: const Text(
-                          "고수매칭",
-                          style: TextStyle(
-                              color: Colors.black, fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                      TextButton(
-                        onPressed: () {},
-                        child: const Text(
-                          "고수탐색",
-                          style: TextStyle(
-                              color: Colors.black, fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                      TextButton(
-                        onPressed: () {},
-                        child: const Text(
-                          "마켓",
-                          style: TextStyle(
-                              color: Colors.black, fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: CarouselSlider(
-                  options: CarouselOptions(
-                    autoPlay: true,
-                    height: MediaQuery.of(context).size.height / 7,
-                    viewportFraction: 1.0,
-                  ),
-                  items: bannerItems.map((item) {
-                    return Builder(builder: (BuildContext context) {
-                      return Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(5.0),
-                        ),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(5.0),
-                          child: Image.asset(
-                            item,
-                            fit: BoxFit.fill,
-                          ),
-                        ),
-                      );
-                    });
-                  }).toList(),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const LessonPage()),
-                        );
-                      },
-                      child: _menuButton(
-                        "레슨",
-                        Icons.palette_outlined,
-                      ),
-                    ),
-                    InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const LivingPage()),
-                        );
-                      },
-                      child: _menuButton(
-                        "홈/리빙",
-                        Icons.home_outlined,
-                      ),
-                    ),
-                    InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const EventPage()),
-                        );
-                      },
-                      child: _menuButton(
-                        "이벤트",
-                        Icons.mic_external_on_outlined,
-                      ),
-                    ),
-                    InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const BusinessPage()),
-                        );
-                      },
-                      child: _menuButton(
-                        "비즈니스",
-                        Icons.business_center_outlined,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const DesignPage()),
-                        );
-                      },
-                      child: _menuButton(
-                        "디자인/개발",
-                        Icons.design_services_outlined,
-                      ),
-                    ),
-                    InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const HealthPage()),
-                        );
-                      },
-                      child: _menuButton(
-                        "건강/미용",
-                        Icons.monitor_heart_outlined,
-                      ),
-                    ),
-                    InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const ParttimePage()),
-                        );
-                      },
-                      child: _menuButton(
-                        "알바",
-                        Icons.monetization_on_outlined,
-                      ),
-                    ),
-                    InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const EtcPage()),
-                        );
-                      },
-                      child: _menuButton(
-                        "기타",
-                        Icons.tag_outlined,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(10.0),
+        body: Column(
+          children: [
+            Expanded(
+              child: SingleChildScrollView(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Text(
-                        "지금 바로 원하는 서비스를 받아보세요!",
-                        style: TextStyle(fontWeight: FontWeight.bold),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 10.0, horizontal: 10.0),
+                      child: SizedBox(
+                        width: 200,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            TextButton(
+                              onPressed: () {},
+                              child: const Text(
+                                "고수매칭",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                            TextButton(
+                              onPressed: () {},
+                              child: const Text(
+                                "고수탐색",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                            TextButton(
+                              onPressed: () {},
+                              child: const Text(
+                                "마켓",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                    Row(
-                      children: [
-                        _buildChip(" 개발자로 성공하기"),
-                        _buildChip(" 웹 개발 의뢰하기"),
-                      ],
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                      child: CarouselSlider(
+                        options: CarouselOptions(
+                          autoPlay: true,
+                          height: MediaQuery.of(context).size.height / 7,
+                          viewportFraction: 1.0,
+                        ),
+                        items: bannerItems.map((item) {
+                          return Builder(builder: (BuildContext context) {
+                            return Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(5.0),
+                              ),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(5.0),
+                                child: Image.asset(
+                                  item,
+                                  fit: BoxFit.fill,
+                                ),
+                              ),
+                            );
+                          });
+                        }).toList(),
+                      ),
                     ),
-                    Row(
-                      children: [
-                        _buildChip(" 알고리즘 마스터"),
-                        _buildChip(" 디자인 의뢰는 여기서"),
-                      ],
-                    ),
-                    SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
+                    Padding(
+                      padding: const EdgeInsets.all(16.0),
                       child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          _service(
-                              "https://static.wanted.co.kr/images/events/1633/f85834e9.jpg",
-                              "문제 풀면서 공부하는 알고리즘 기초 1탄"),
-                          _service(
-                              "https://image.zdnet.co.kr/2021/03/19/e1481ebc5e762f55fd93c94a395486dd.jpg",
-                              "프론트엔드+백엔드 웹개발 기초"),
-                          _service(
-                              "https://t1.daumcdn.net/cfile/tistory/21315B3959437CED17",
-                              "프로그래밍 속성 과외"),
-                          _service(
-                              "https://image.chosun.com/sitedata/image/202204/13/2022041301646_0.jpeg",
-                              "개발참치의 맞춤형 프로그래밍 과외"),
-                          _service(
-                              "https://www.newsnjob.com/news/photo/202106/13179_10993_1127.jpg",
-                              "서울대 출신 자연어 처리"),
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const LessonPage()),
+                              );
+                            },
+                            child: _menuButton(
+                              "레슨",
+                              Icons.palette_outlined,
+                            ),
+                          ),
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const LivingPage()),
+                              );
+                            },
+                            child: _menuButton(
+                              "홈/리빙",
+                              Icons.home_outlined,
+                            ),
+                          ),
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const EventPage()),
+                              );
+                            },
+                            child: _menuButton(
+                              "이벤트",
+                              Icons.mic_external_on_outlined,
+                            ),
+                          ),
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const BusinessPage()),
+                              );
+                            },
+                            child: _menuButton(
+                              "비즈니스",
+                              Icons.business_center_outlined,
+                            ),
+                          ),
                         ],
                       ),
-                    )
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const DesignPage()),
+                              );
+                            },
+                            child: _menuButton(
+                              "디자인/개발",
+                              Icons.design_services_outlined,
+                            ),
+                          ),
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const HealthPage()),
+                              );
+                            },
+                            child: _menuButton(
+                              "건강/미용",
+                              Icons.monitor_heart_outlined,
+                            ),
+                          ),
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const ParttimePage()),
+                              );
+                            },
+                            child: _menuButton(
+                              "알바",
+                              Icons.monetization_on_outlined,
+                            ),
+                          ),
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const EtcPage()),
+                              );
+                            },
+                            child: _menuButton(
+                              "기타",
+                              Icons.tag_outlined,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Text(
+                              "지금 바로 원하는 서비스를 받아보세요!",
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          Row(
+                            children: [
+                              _buildChip(" 개발자로 성공하기"),
+                              _buildChip(" 웹 개발 의뢰하기"),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              _buildChip(" 알고리즘 마스터"),
+                              _buildChip(" 디자인 의뢰는 여기서"),
+                            ],
+                          ),
+                          SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Row(
+                              children: [
+                                _service(
+                                    "https://static.wanted.co.kr/images/events/1633/f85834e9.jpg",
+                                    "문제 풀면서 공부하는 알고리즘 기초 1탄"),
+                                _service(
+                                    "https://image.zdnet.co.kr/2021/03/19/e1481ebc5e762f55fd93c94a395486dd.jpg",
+                                    "프론트엔드+백엔드 웹개발 기초"),
+                                _service(
+                                    "https://t1.daumcdn.net/cfile/tistory/21315B3959437CED17",
+                                    "프로그래밍 속성 과외"),
+                                _service(
+                                    "https://image.chosun.com/sitedata/image/202204/13/2022041301646_0.jpeg",
+                                    "개발참치의 맞춤형 프로그래밍 과외"),
+                                _service(
+                                    "https://www.newsnjob.com/news/photo/202106/13179_10993_1127.jpg",
+                                    "서울대 출신 자연어 처리"),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ],
                 ),
               ),
-            ],
-          ),
+            ),
+            Container(
+              height: 45,
+              decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(10),
+                      topRight: Radius.circular(10))),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: const [
+                    Text("로그인하고 더 많은 기능을 이용해보세요"),
+                    Text("로그인", style: TextStyle(color: Color(0xFF01C7AD))),
+                  ],
+                ),
+              ),
+            ),
+            const Divider(color: Colors.black12, thickness: 0.5, height: 1),
+            const BottomNavigator(),
+          ],
         ),
       ),
     );

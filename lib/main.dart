@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'ui/main_view_model.dart';
+import 'main_view_model.dart';
 import 'ui/splash_page.dart';
 
 void main() {
